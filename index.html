@@ -7,37 +7,101 @@
     <style>
       body {
         font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
       }
 
-      .chat-container {
+      .container {
         width: 300px;
-        margin: 20px auto;
-        border: 1px solid #ccc;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image {
+        width: 150px;
+        height: 150px;
+        margin: 20px;
+        border-radius: 50%;
         overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image h2 {
+        margin: 10px 0;
+      }
+
+      .image:hover {
+        transform: scale(1.1);
+      }
+
+      .footer {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
     </style>
   </head>
   <body>
-    <div class="chat-container">
-      <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-      <df-messenger
-        project-id="chatbot-data-knowledge"
-        agent-id="b44d42f5-c783-45a2-ba42-2b542a4a6c51"
-        language-code="es"
-      >
-        <df-messenger-chat-bubble chat-title="chatbot">
-        </df-messenger-chat-bubble>
-      </df-messenger>
-      <style>
-        df-messenger {
-          z-index: 999;
-          position: fixed;
-          bottom: 16px;
-          right: 16px;
-        }
-      </style>
+    <div class="container">
+      <div class="image-container">
+        <div class="image">
+          <img
+            src="https://hiviewsolutions.com/wp-content/uploads/2021/07/Group-62-min-768x780.png"
+            alt="Image 1"
+          />
+          <h2>Powered by Google Cloud Platform</h2>
+        </div>
+        <div class="image">
+          <img
+            src="https://media.licdn.com/dms/image/D4E12AQH32DNOGTvNZw/article-cover_image-shrink_720_1280/0/1677699348773?e=2147483647&v=beta&t=OvY9sIYsZN6LNMrg36X9cvkNTa5ZR0WZBa0qw2XdI8c"
+            alt="Image 2"
+          />
+          <h2>AppGen Builder</h2>
+        </div>
+      </div>
+      <div class="footer">
+        Haz click en el esquina inferior izquierda para interactuar con el chat
+      </div>
     </div>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      project-id="chatbot-data-knowledge"
+      agent-id="b44d42f5-c783-45a2-ba42-2b542a4a6c51"
+      language-code="es"
+    >
+      <df-messenger-chat-bubble chat-title="chatbot">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+    <style>
+      df-messenger {
+        z-index: 999;
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+      }
+    </style>
   </body>
 </html>
